@@ -1,0 +1,20 @@
+.App-title {
+    color: rgb(38, 151, 53);
+    font : 90px solid Tahoma ;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+.App-header {
+    display: flex;
+    justify-content: center;
+  }
+.App-form {
+    width: 50%;
+  }
+.App-Cards {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+    padding: 120px;
+  }
+  
