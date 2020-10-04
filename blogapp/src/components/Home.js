@@ -39,12 +39,7 @@ export default function Home() {
     setShow(false);
   }
   const DeletePost = (id)=>{
-    for(var i=0;i<ListPost.length;i++){
-      if(ListPost[i].id === id){
-        ListPost.splice(i,1);
-        break;
-      }
-    }
+    setListPost(ListPost.filter((post , index) => post.id !== id ));
   }
   const EditPost = (title,body,id)=>{
     for(var i=0;i<ListPost.length;i++){
