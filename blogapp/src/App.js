@@ -1,16 +1,18 @@
 import React from 'react';
 import Home from './components/Home';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import PageDetails from './components/PageDetails';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
 
   return (
-    <BrowserRouter>
+    <>
       <Switch>
-        <Route exact path="" component={Home} />
-        <Route component={()=><div>Page not found</div>} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/detail" component={PageDetails} />
+        <Route path="/" component={()=><div>Page not found</div>} />
       </Switch>
-    </BrowserRouter>
+    </>
   );
 }
 
