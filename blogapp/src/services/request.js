@@ -1,6 +1,6 @@
 
 const request = (url, options) => {
-    const response = fetch(`https://jsonplaceholder.typicode.com${url}`, {
+    const response = fetch(`${process.env.REACT_APP_API}${url}`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-type': 'application/json',
@@ -11,15 +11,6 @@ const request = (url, options) => {
     return response;
   };
   
-  export const checkStatus = response => {
-    if (response.status === 200) {
-      return response;
-    }
-    const error = new Error(response.statusText);
-    error.response = response;
-  
-    throw error;
-  };
   export const get = (url, options) =>
     request(url, { ...options, method: 'GET' });
   

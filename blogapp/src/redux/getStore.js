@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
-import reducer from './reducers/Postreducers';
+import reducer from './reducers/rootReducer';
 import rootSaga from './sagas/index';
 
 const logger = createLogger({

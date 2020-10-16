@@ -4,7 +4,8 @@ export const initialState = {
     posts: [],
     Addmodal: false,
     Editmodal: false,
-    postEdited : {}
+    postEdited : {show : false, type:'', color: ""},
+    toast:{},
 }
 
 export default function postReducer(state = initialState, action) {
@@ -15,11 +16,12 @@ export default function postReducer(state = initialState, action) {
                 posts : action.payload
             };
         case constants.ADD_POST:
-            console.log(action.payload)
             return { 
                 ...state, 
-                posts : [...state.posts,  { id : action.payload.id , title : action.payload.title , body : action.payload.body}],
-                Addmodal : false
+                posts : [{ id : action.payload.id , title : action.payload.title , body : action.payload.body},...state.posts],
+                toast : {show : true, type : "added", color: "green"},
+                Addmodal : false,
+
             };
         case constants.TOGGLE_ADD_MODAL:
             return { 
@@ -30,10 +32,10 @@ export default function postReducer(state = initialState, action) {
             var objIndex = state.posts.findIndex((obj => obj.id === action.payload.id));
             var postedited = [...state.posts];
             postedited[objIndex] = action.payload.post
-            console.log(postedited)
             return { 
                 ...state,
                 posts : postedited,
+                toast : {show : true, type : "edited", color: "yellow"},
                 Editmodal : false
             };
         case constants.TOGGLE_EDIT_MODAL:
@@ -50,7 +52,14 @@ export default function postReducer(state = initialState, action) {
         case constants.DELETE_POST:
             return { 
                 ...state,
-                posts : state.posts.filter((post) => post.id !== action.payload ) };
+                posts : state.posts.filter((post) => post.id !== action.payload ),
+                toast : {show : true, type : "deleted", color: "red"},
+            };
+        case constants.TOGGLE_ALERT:
+            return {
+                ...state,
+                toast : {show : action.payload, type : "", color: ""},
+            };
         default:
             return state;
     }

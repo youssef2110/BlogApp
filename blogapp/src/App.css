@@ -17,7 +17,24 @@
     justify-content: center;
     padding: 120px;
   }
-.Detail-cont{
-  text-align: center;
+.Detail{
+  padding: 80px;
 }
-  
+.Detail-title{
+    color: rgb(38, 151, 53);
+    font : 45px solid Tahoma ;
+    text-align: center;
+    margin: 60px 0px 40px;
+}
+.Detail-para{
+    color: rgb(0, 0, 0);
+    font : 25px solid Tahoma ;
+    text-align: justify;
+}
+.Alert{
+  width: 700px;
+  position: fixed; 
+  bottom: 40px; 
+  left: 40px;
+  z-index: 99;
+}
