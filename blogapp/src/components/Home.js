@@ -9,6 +9,9 @@ import {
   tryEditAction,
   fetchSearchAction,
 } from "../redux/actions/postActions";
+import {
+  tryLoginAction
+} from "../redux/actions/userActions";
 import { Button, InputGroup, FormControl, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AddPost from "./Addpost";
@@ -24,6 +27,7 @@ function Home({
   tryEdit,
   fetchSearch,
   search,
+  trylogin,
 }) {
   // before rendering
   useEffect(() => {
@@ -32,6 +36,9 @@ function Home({
 
   return (
     <div className="App">
+      <Button style={{float:"right", margin:30}} onClick={() => trylogin(false)} variant="success">
+        Logout
+      </Button>
       <h2 className="App-title">My blog</h2>
       <div className="App-header">
         <div className="App-form">
@@ -128,6 +135,7 @@ Home.propTypes = {
   toggleAddModal: PropTypes.func.isRequired,
   tryEdit: PropTypes.func.isRequired,
   fetchSearch: PropTypes.func.isRequired,
+  trylogin: PropTypes.func.isRequired,
   search: PropTypes.string.isRequired,
 };
 
@@ -144,6 +152,7 @@ const mapDispatchToProps = (dispatch) =>
       tryEdit: tryEditAction,
       deletePost: deletePostAction,
       fetchSearch: fetchSearchAction,
+      trylogin: tryLoginAction,
     },
     dispatch
   );

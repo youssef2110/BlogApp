@@ -8,6 +8,16 @@
     display: flex;
     justify-content: center;
   }
+.App-sign {
+    margin-top: 300px;
+    display: flex;
+    justify-content: center;
+  }
+  @media only screen and (max-width: 600px) {
+    .App-sign {
+      margin-top: 250px;
+    }
+  }
 .App-form {
     width: 50%;
   }
