@@ -11,6 +11,20 @@ export const initialState = {
 export default function userReducer(state = initialState, action) {
     switch (action.type) {
         case constants.EMAIL_CHANGE:
+            
+            return { 
+                ...state,
+                email : action.payload,
+                
+            };
+        case constants.PASSWORD_CHANGE:
+           
+            return { 
+                ...state,
+                password : action.payload,
+               
+            };
+        case constants.TRY_LOGIN:
             var testemail;
             console.log(constants.EMAIL_REGEX.test(state.email))
             if(!constants.EMAIL_REGEX.test(state.email)){
@@ -18,12 +32,6 @@ export default function userReducer(state = initialState, action) {
             }else{
                 testemail = '';
             }
-            return { 
-                ...state,
-                email : action.payload,
-                emailError : testemail,
-            };
-        case constants.PASSWORD_CHANGE:
             var testpassword;
             console.log(constants.PASSWORD_REGEX.test(state.password))
             if(state.password.length < 8){
@@ -39,13 +47,10 @@ export default function userReducer(state = initialState, action) {
             }
             return { 
                 ...state,
-                password : action.payload,
+                emailError : testemail,
                 passwordError : testpassword,
-            };
-        case constants.TRY_LOGIN:
-            return { 
-                ...state,
                 isConnected : action.payload,
+                
             };
                          
         default:
